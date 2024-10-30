@@ -1,0 +1,11 @@
+{
+	"id": "share-as-zip",
+	"name": "Share as ZIP",
+	"version": "0.0.1",
+	"minAppVersion": "0.15.0",
+	"description": "Share notes and their links as a zip folder.",
+	"author": "Your Name",
+	"authorUrl": "http://friebetill.github.io",
+	"fundingUrl": "https://github.com/sponsors/friebetill",
+	"isDesktopOnly": false
+}
