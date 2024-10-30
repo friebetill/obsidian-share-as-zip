@@ -1,4 +1,4 @@
-import { saveAs } from 'file-saver';
+import saveAs from 'file-saver';
 import JSZip from 'jszip';
 import { Notice, Plugin, TFile } from 'obsidian';
 
@@ -44,8 +44,20 @@ export default class ShareAsZipPlugin extends Plugin {
 	}
 
 	extractLinks(content: string): TFile[] {
-		// Implement logic to extract linked files from the note content
-		// This is a placeholder and needs to be implemented
-		return [];
+		const linkedFiles: TFile[] = [];
+		const linkPattern = /\[\[([^\|\]]+)(?:\|[^\]]+)?\]\]/g;
+		let match;
+
+		while ((match = linkPattern.exec(content)) !== null) {
+			const linkedNoteName = match[1];
+
+			const linkedFile = this.app.metadataCache.getFirstLinkpathDest(linkedNoteName, '');
+
+			if (linkedFile instanceof TFile) {
+				linkedFiles.push(linkedFile);
+			}
+		}
+
+		return linkedFiles;
 	}
 }
