@@ -149,7 +149,7 @@ buildRelease() {
 createGitHubRelease() {
     echo "Create GitHub release. Press ENTER to create or ESC to skip."
     if askForEnter; then
-        gh release create "$NEW_VERSION" manifest.json main.js styles.css --generate-notes
+        gh release create "$NEW_VERSION" manifest.json main.js  --generate-notes
     fi
     echo ""
 }
