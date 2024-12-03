@@ -6,7 +6,7 @@ export default class ShareAsZipPlugin extends Plugin {
 	async onload() {
 		this.addCommand({
 			id: 'share-note-as-zip',
-			name: 'Share Note as ZIP',
+			name: 'Share note as ZIP',
 			callback: () => this.shareNoteAsZip(),
 		});
 	}
