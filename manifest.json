@@ -1,7 +1,7 @@
 {
 	"id": "share-as-zip",
 	"name": "Share as ZIP",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"minAppVersion": "0.15.0",
 	"description": "Share notes and their links as a ZIP folder.",
 	"author": "Till Friebe",
