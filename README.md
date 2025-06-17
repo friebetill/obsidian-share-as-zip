@@ -4,51 +4,63 @@ Share as ZIP is an Obsidian plugin that allows you to share notes and their link
 
 ## Features
 
-- **Recursive Note Collection**: Automatically collects the current note and all linked notes.
-- **ZIP Compression**: Compresses the collected notes into a single zip file.
-- **Save As Dialog**: Prompts a save dialog to choose the location for the zip file.
+- **Recursive Note Collection**: Automatically collects the current note and all linked notes
+- **Binary File Support**: Properly handles PDFs, images, and other binary files
+- **Smart Exclusion System**: Configure what to exclude from your exports:
+  - **Frontmatter-based**: Exclude notes with `private: true` etc.
+  - **Header-based**: Skip content under specific headers when scanning for links
+  - **Folder-based**: Exclude entire directories and subdirectories
+  - **File-based**: Exclude specific files with wildcard support (e.g., `*.tmp`)
+- **ZIP Compression**: Compresses the collected notes into a single zip file
+- **Save As Dialog**: Prompts a save dialog to choose the location for the zip file
 
 ## Installation
 
-1. **Download the Plugin**: Clone or download this repository to your local machine.
-   ```bash
-   git clone https://github.com/yourusername/share-as-zip.git
-   ```
+### From Obsidian Community Plugins (Recommended)
 
-2. **Install Dependencies**: Ensure you have the necessary dependencies installed. You can use npm or yarn to install them.
-   ```bash
-   npm install
-   ```
+1. Open Obsidian Settings
+2. Go to Community Plugins and disable Safe Mode
+3. Click Browse and search for "Share as ZIP"
+4. Install the plugin and enable it
 
-3. **Load the Plugin in Obsidian**:
-   - Open Obsidian and navigate to the settings.
-   - Go to the "Community plugins" section and enable "Developer mode".
-   - Load the plugin from the directory where you cloned the repository.
+### Manual Installation
+
+1. Download the latest release from the GitHub releases page
+2. Extract the files to your vault's `.obsidian/plugins/share-as-zip/` folder
+3. Reload Obsidian and enable the plugin in Community Plugins settings
 
 ## Usage
 
-1. Open a note in Obsidian.
-2. Use the command palette (Ctrl/Cmd + P) and search for "Share Note as ZIP".
-3. The plugin will collect the note and all linked notes, compress them into a zip file, and prompt you to save it.
+1. Open a note in Obsidian
+2. Use the command palette (Ctrl/Cmd + P) and search for "Share note as ZIP"
+3. The plugin will collect the note and all linked notes, compress them into a zip file, and prompt you to save it
+
+## Configuration
+
+Go to **Settings → Share as ZIP** to configure exclusion rules:
+
+- **Excluded Frontmatter Keys**: Notes with these properties set to `true` will be skipped (e.g., `private, draft, secure`)
+- **Excluded Headers**: Content under headers containing these texts won't be scanned for links (e.g., `Task Management, Daily Review`)
+- **Excluded Folders**: Entire directories to exclude (e.g., `Templates, Archive, .trash`)
+- **Excluded Files**: Specific files to exclude with wildcard support (e.g., `*.tmp, passwords.md`)
+
+### Example Exclusions
+
+**Frontmatter exclusion:**
+```yaml
+---
+private: true
+draft: true
+---
+```
+
+**Header exclusion:** Content under `## Task Management` will be ignored when scanning for links.
+
+**File patterns:** `*.tmp`, `*private*`, `passwords.md`
 
 ## Contributing
 
 Contributions are welcome! If you have suggestions or improvements, feel free to open an issue or submit a pull request.
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-3. Commit your changes.
-   ```bash
-   git commit -m "Add your feature or fix description"
-   ```
-4. Push to your branch.
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-5. Open a pull request.
 
 ## License
 
